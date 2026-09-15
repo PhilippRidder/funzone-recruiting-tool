@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-ssr
+*.local
+.vite
+.DS_Store
+.claude/settings.local.json
+
+# Ausgaben von `tsc -b`: tsconfig.node.json ist ein composite-Projekt und
+# schreibt beim Typecheck Build-Info und die kompilierte vite.config neben die
+# Quelle. Beides ist Zwischenstand, kein Quellcode.
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
