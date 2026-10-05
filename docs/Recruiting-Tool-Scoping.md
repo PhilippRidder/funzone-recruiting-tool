@@ -563,6 +563,31 @@ Gemeinsam die 23 Verwaltungspunkte durchgegangen und entschieden:
 `tsc --noEmit` sauber, live geprüft (Verwaltung-Übersicht, neue Bewertungsformulare-Seite,
 Bewertungskit-Tab inkl. Dropdown-Auswahl, „Berichte (kommt ins MMT)" in der Sidebar).
 
+## Lebenslauf-Vorauswahl (KI-Screening) (2026-10-05)
+Neue Funktion auf expliziten Wunsch: beim Eingang einer Bewerbung soll der Lebenslauf
+automatisch gegen festgelegte Kriterien gescreent werden — **keine automatische
+Aussortierung**, sondern eine Vorauswahl/Einschätzung, auf deren Basis ein Mensch
+entscheidet, ob wirklich abgesagt wird. Wichtig für den Bau-Prompt später: automatisiertes
+CV-Screening für Einstellungsentscheidungen fällt unter den **EU AI Act als
+Hochrisiko-KI-System** — Backend/KI-Anbindung muss als Entscheidungshilfe mit
+menschlicher Prüfpflicht umgesetzt werden, nicht als Autopilot.
+
+- **Verwaltung → Screening-Kriterien** (neu, Gruppe Prozess): Katalog der
+  Vorauswahl-Parameter, global (nicht je Job) — z. B. Führerschein, Sprachniveau,
+  Stichwort in Fähigkeiten, Verfügbarkeit. Jedes Kriterium ist Pflicht oder wünschenswert.
+- **Kandidat*innen-Profil, Reiter „Überblick"**: neues Panel „KI-Vorauswahl" ganz oben —
+  zeigt pro Kriterium ✓/✗ mit Begründung, eine Kopfzeile „X/Y Pflichtkriterien erfüllt"
+  und eine Badge „Passt gut" (grün) / „Bitte prüfen" (orange). Fester Hinweistext:
+  „ersetzt keine menschliche Prüfung — die Entscheidung triffst du."
+- Im Demo-Stand wird das **nicht** durch echtes KI-Parsing erzeugt, sondern durch
+  `lib/screening.ts`, das die Kriterien gegen bereits vorhandene Kandidat*innen-Felder
+  auswertet (Führerschein, Sprachen, Fähigkeiten, Wochenendarbeit, Verfügbarkeit) — kein
+  separates Fake-Datenmodell. Für den echten Bau ersetzt ein Backend-Endpunkt mit
+  PDF-Textauslesung + LLM-Abgleich diese Funktion; die Kriterien-Struktur bleibt gleich.
+
+`tsc --noEmit` sauber, live geprüft (Kandidat mit erfüllten Pflichtkriterien → „Passt
+gut", Kandidat mit fehlendem Führerschein → „Bitte prüfen", neue Verwaltungsseite).
+
 ## Nächster Schritt
 Nutzer geht Settings-Tabelle + offene Punkte durch → daraus finales Datenmodell + Seiten
 → `Recruiting-Nachbau-Prompt.md` (analog CRM) → Bau.

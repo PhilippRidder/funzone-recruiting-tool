@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react'
-import { IconArrowDown, IconChevronUp, IconCopy, IconMail, IconPaperclip, IconPlus } from '../../../components/Icons'
+import { IconArrowDown, IconCheck, IconChevronUp, IconCopy, IconMail, IconPaperclip, IconPlus, IconX } from '../../../components/Icons'
 import { formatLongRelative } from '../../../lib/relativeTime'
+import { evaluateCandidate, screeningSummary } from '../../../lib/screening'
 import type { Candidate } from '../../../types'
 
 function SectionPanel({ title, headerRight, children }: { title: string; headerRight?: ReactNode; children: ReactNode }) {
@@ -40,8 +41,38 @@ export function OverviewTab({ candidate }: { candidate: Candidate }) {
 
   const copy = (value: string) => navigator.clipboard?.writeText(value).catch(() => {})
 
+  const screeningResults = evaluateCandidate(candidate)
+  const summary = screeningSummary(screeningResults)
+
   return (
     <>
+      <div className="panel screening-panel">
+        <div className="panel-head">
+          <span className="panel-head-title">KI-Vorauswahl</span>
+          <span className={'screening-badge ' + summary.empfehlung}>
+            {summary.empfehlung === 'passt' ? '✓ Passt gut' : '⚠ Bitte prüfen'}
+          </span>
+        </div>
+        <p className="stat-card-desc" style={{ marginTop: -4 }}>
+          {summary.pflichtPassed}/{summary.pflichtTotal} Pflichtkriterien erfüllt · {summary.totalPassed}/{summary.total}{' '}
+          Kriterien insgesamt
+        </p>
+        {screeningResults.map((r) => (
+          <div className="field-row" key={r.criterion.id}>
+            <span className="k" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              {r.passed ? <IconCheck size={13} /> : <IconX size={13} />}
+              {r.criterion.label}
+              {r.criterion.pflicht && <span style={{ color: 'var(--text-faint)' }}>*</span>}
+            </span>
+            <span className="v">{r.note}</span>
+          </div>
+        ))}
+        <p className="screening-disclaimer">
+          Automatische Vorauswahl auf Basis des Profils/Lebenslaufs (* = Pflichtkriterium) — ersetzt keine
+          menschliche Prüfung. Die Entscheidung über Einladung oder Absage triffst du.
+        </p>
+      </div>
+
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
         <span style={{ fontWeight: 700, fontSize: 12.5, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Tags</span>
         <div className="chip-row" style={{ margin: 0 }}>

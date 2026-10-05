@@ -29,6 +29,20 @@ export interface Job {
 
 export type CandidateStatus = 'Aktiv' | 'Abgelaufen' | 'Eingestellt' | 'Abgesagt'
 
+export type ScreeningCriterionType = 'fuehrerschein' | 'skill' | 'language' | 'weekendWork' | 'availability'
+
+export interface ScreeningCriterion {
+  id: string
+  label: string
+  type: ScreeningCriterionType
+  pflicht: boolean
+  // je nach Typ:
+  skillKeyword?: string // 'skill'
+  languageName?: string // 'language'
+  languageMinLevel?: string // 'language'
+  availableWithinDays?: number // 'availability'
+}
+
 export interface Candidate {
   id: string
   name: string

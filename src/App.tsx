@@ -23,6 +23,7 @@ import { StellenantraegePage } from './pages/settings/StellenantraegePage'
 import { PipelinePhasesPage } from './pages/settings/PipelinePhasesPage'
 import { EvaluationFormsPage } from './pages/settings/EvaluationFormsPage'
 import { CustomFieldsPage } from './pages/settings/CustomFieldsPage'
+import { ScreeningCriteriaPage } from './pages/settings/ScreeningCriteriaPage'
 import { TagsSourcesPage } from './pages/settings/TagsSourcesPage'
 import { EventPlannerPage } from './pages/settings/EventPlannerPage'
 import { CompanySettingsPage } from './pages/settings/CompanySettingsPage'
@@ -64,6 +65,7 @@ function InternalRoutes() {
         <Route path="/verwaltung/stellenantraege" element={<StellenantraegePage />} />
         <Route path="/verwaltung/pipeline-phasen" element={<PipelinePhasesPage />} />
         <Route path="/verwaltung/felder" element={<CustomFieldsPage />} />
+        <Route path="/verwaltung/screening-kriterien" element={<ScreeningCriteriaPage />} />
         <Route path="/verwaltung/tags-quellen" element={<TagsSourcesPage />} />
         <Route path="/verwaltung/ereignis-planer" element={<EventPlannerPage />} />
         <Route path="/verwaltung/unternehmen" element={<CompanySettingsPage />} />

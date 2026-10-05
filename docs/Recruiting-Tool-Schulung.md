@@ -140,9 +140,15 @@ wechseln, ohne das Pop-up zu schließen.
 umschaltbar), Aktionen Einplanen/Teilen/Folgen.
 
 **7 Reiter:**
-1. **Überblick** — Tags, Kontaktdaten (mit Kopieren-Icon), Details (Erstellungsdatum,
-   Quelle, letzte Aktivität), Profilfelder (Geburtsdatum, Gehalt, Adresse, Verfügbarkeit,
-   Sprachen, Fähigkeiten, Wochenendarbeit), Lebenslauf-Upload, Anschreiben
+1. **Überblick** — ganz oben das Panel **„KI-Vorauswahl"**: automatische Einschätzung des
+   Profils gegen die unter Verwaltung → Screening-Kriterien festgelegten Parameter (z. B.
+   Führerschein, Sprachniveau, Stichworte in den Fähigkeiten, Verfügbarkeit), je Kriterium
+   mit ✓/✗ und Begründung, plus Badge „Passt gut" (grün) oder „Bitte prüfen" (orange).
+   **Wichtig für die Schulung:** das ist nur eine Vorauswahl/Entscheidungshilfe — sie sagt
+   niemandem automatisch ab, die eigentliche Entscheidung trifft immer ein Mensch. Danach
+   Tags, Kontaktdaten (mit Kopieren-Icon), Details (Erstellungsdatum, Quelle, letzte
+   Aktivität), Profilfelder (Geburtsdatum, Gehalt, Adresse, Verfügbarkeit, Sprachen,
+   Fähigkeiten, Wochenendarbeit), Lebenslauf-Upload, Anschreiben
 2. **Nachrichten** — E-Mail-Verlauf mit der Person
 3. **Ereignisse** — geplante/vergangene Termine (Interviews)
 4. **Bewertung** — Zusammenfassung mit Punktzahl-Diagramm, Detailauswertung je Bewertungsfrage
@@ -211,6 +217,9 @@ Vier Reiter, analog zu den echten Recruitee-Einstellungen:
 
 **Prozess** *(Recruiting-Manager)*
 - **Benutzerdefinierte Felder** — zusätzliche Kandidat*innen-Felder
+- **Screening-Kriterien** — Parameter für die automatische Vorauswahl eingehender
+  Bewerbungen (z. B. Führerschein, Sprachniveau, Stichworte, Verfügbarkeit), je Kriterium
+  Pflicht oder wünschenswert; Ergebnis erscheint im Kandidat*innen-Profil (siehe Abschnitt 6)
 - **Absagegründe** — 12 Gründe, je mit Flag „löst automatische Absage-Mail aus"
 - **Tags und Quellen** — freie Kennzeichnung + Herkunft der Bewerbung (fürs Reporting)
 - **Ereignis-Planer** — Interviews laufen über Microsoft Teams

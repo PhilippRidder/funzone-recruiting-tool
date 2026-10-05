@@ -19,6 +19,7 @@ const ALLGEMEIN = [
 
 const PROZESS = [
   { name: 'Benutzerdefinierte Felder', sub: 'Zusatzfelder am Bewerberprofil', to: '/verwaltung/felder' },
+  { name: 'Screening-Kriterien', sub: 'Vorauswahl-Parameter für eingehende Bewerbungen', to: '/verwaltung/screening-kriterien' },
   { name: 'Absagegründe', sub: '12 Gründe, teils mit Auto-Mail', to: '/verwaltung/absagegruende' },
   { name: 'Tags und Quellen', sub: 'Herkunft & freie Kennzeichnung', to: '/verwaltung/tags-quellen' },
   { name: 'Ereignis-Planer', sub: 'Interviews über Microsoft Teams', to: '/verwaltung/ereignis-planer' },
